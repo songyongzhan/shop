@@ -111,3 +111,12 @@ define("DB_AUTOTIME_OUT_FORMAT", 'Y-m-d H:i:s'); //输入日期格式
 $filterParam = [
   'mobile'
 ];
+
+/**
+ * 项目中相关配置
+ */
+
+define("MESSAGESIGN", '[万果汇]'); //发送短信签名
+define("MESSAGEUSERNAME", 'lyldzl'); //发送短信用户名
+define("MESSAGEPASSWORD", '88888'); //发送短信密码
+

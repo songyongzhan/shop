@@ -607,6 +607,30 @@ function jsondecode($data, $forceObject = FALSE) {
 }
 
 /**
+ * 返回xml文档
+ * @param $xmldata
+ * @return string
+ */
+function toxml($xmldata, $root = TRUE) {
+  $xml = '';
+  $root && $xml .= "<xml>";
+  foreach ($xmldata as $key => $val) {
+    if (is_array($val)) {
+      $child = toxml($val, FALSE);
+      $xml .= "<" . $key . ">" . $child . "</" . $key . ">";
+    } else {
+      if (is_numeric($val))
+        $xml .= "<" . $key . ">" . $val . "</" . $key . ">";
+      else
+        $xml .= "<" . $key . "><![CDATA[" . $val . "]]></" . $key . ">";
+    }
+  }
+  $root && $xml .= "</xml>";
+
+  return $xml;
+}
+
+/**
  * 抛出异常 API异常
  * @param string 出错提示
  * @param string 异常对象名
