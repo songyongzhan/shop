@@ -15,17 +15,11 @@ class MenuCheckPlugin extends Yaf_Plugin_Abstract {
 
       //不需要验证的接口
       $whiteList = [
-        'Manage' => ['logout', 'checkToken', 'login', 'password', 'getClientIp', 'searchData', 'getUserInfo', 'password', 'checkCode', 'getCode', 'aa'],
+        'Manage' => ['logout', 'checkToken', 'login', 'password', 'getClientIp', 'getUserInfo', 'password', 'checkCode', 'getCode', 'aa'],
         'Dictionaries' => '*',
         'Region' => '*',
-        'Ydylarea' => ['getList', 'getChinaList'],
-        'Exportdata' => ['createCsv'],
         'Menu' => ['getAppointMenuList', 'getList'],
-        'Pcrdata' => ['getCity', 'getBrand', 'getGrade', 'getSpecification'],
-        'Mppinpai' => ['getListOption'],
-        'Reportlist' => ['getListByreport'],
-        'Roleaccess' => ['checkUrl', 'getRoleMenuUrls'],
-        //'Menu' => ['getOne']
+        'Roleaccess' => ['checkUrl', 'getRoleMenuUrls']
       ];
 
       $whiteList = array_change_value_case_recursive($whiteList);

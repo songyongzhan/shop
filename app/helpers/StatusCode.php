@@ -9,8 +9,7 @@
 
 
 class StatusCode {
-
-
+  
   const USER_NOT_EXISTS = 42001409; //您没有访问权限  用户不存在
   const PASSWORD_CANNOT_EMPTY = 42002409; //密码不能为空
   const USERNAME_CANNOT_EMPTY = 42003409; //用户名不能为空

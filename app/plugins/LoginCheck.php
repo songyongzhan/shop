@@ -31,9 +31,8 @@ class LoginCheckPlugin extends Yaf_Plugin_Abstract {
 
       //不需要验证的接口
       $whiteList = [
-        'Manage' => ['logout', 'getClientIp', 'checkToken', 'getcode', 'checkcode', 'login', 'searchData', 'aa'],
+        'Manage' => ['logout', 'getClientIp', 'checkToken', 'getcode', 'checkcode', 'login', 'aa'],
         'Dictionaries' => '*',
-        'Exportdata' => ['createCsv'],
         'Menu' => ['getAppointMenuList'],
         'Roleaccess' => ['checkUrl'],
       ];
