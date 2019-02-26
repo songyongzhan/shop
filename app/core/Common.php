@@ -254,19 +254,32 @@ if (!function_exists('checkInclude')) {
 
     $moduleName = Tools_Request::getModuleName();
     if (strtolower($moduleName) !== strtolower(Tools_Config::getConfig('application.dispatcher.defaultModule'))) {   //只是加载models 和services
+
       $loadtype = NULL; //判断加载类型
+
       if (strpos($class, 'Model'))
         $loadtype = 'model';
       elseif (strpos($class, 'Service'))
         $loadtype = 'service';
       elseif (strpos($class, 'Controller'))
         $loadtype = 'controller';
+
+
       if (!is_null($loadtype)) {
         $file = APP_PATH . DS . 'app/modules/' . ucfirst($moduleName) . '/' . $loadtype . 's/' . str_replace(ucfirst($loadtype), '', $class) . '.' . Tools_Config::getConfig('application.ext');
+
+        //如果当前目录下不存在访问对象，则查看common模块是否存在
+        if (!file_exists($file))
+          $file = APP_PATH . DS . 'app/modules/Common/' . $loadtype . 's/' . str_replace(ucfirst($loadtype), '', $class) . '.' . Tools_Config::getConfig('application.ext');
+
         file_exists($file) && $result = TRUE && require_once $file;
         return $result;
       }
+
+
     }
+
+
   }
 }
 

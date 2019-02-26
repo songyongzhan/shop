@@ -21,7 +21,7 @@ return [
     'CommonLog' => 'CommonLog', //公共Log 日志
     'CommonException' => 'CommonException', //公共exception
     'InitException' => 'InitException',
-    'CrosPlugin' => 'Cros',
+    'CrosPlugin' => 'Cros', //跨域
     'cli' => 'Cli',
     'decryt' => 'Decryt', //自动解密
     //routerDispatch
@@ -30,10 +30,15 @@ return [
     //只是针对于二维数组
     //只有是在api模块下才执行 如果像上面单独的写法，则全部注册
     //这种带数组的写法，系统会检测是否这个模块，验证成功后，注册
-    'Api' => [
+    'Api' => [ //作为后台模块
       'LoginCheck' => 'LoginCheck',
-      'MenuCheck' => 'MenuCheck', //暂时关闭
+      'MenuCheck' => 'MenuCheck',
     ],
+
+    //前台客户登录验证
+    'Index' => [
+
+    ]
 
 
   ],
